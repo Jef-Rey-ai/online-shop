@@ -6,10 +6,12 @@ export default function Shop() {
     <div>
       <>
         <h1>WellCome to my Shop</h1>
-        <div className="row">
-          {PRODUCTS.map((product) => (
-            <Products key={product.id} data={product} />
-          ))}
+        <div className="container">
+          <div className="row">
+            {PRODUCTS.map((product) => (
+              <Products key={product.id} data={product} />
+            ))}
+          </div>
         </div>
       </>
     </div>
