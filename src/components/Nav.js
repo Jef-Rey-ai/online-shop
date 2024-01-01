@@ -8,7 +8,7 @@ import "./nav.css";
 
 export default function Nav() {
   const { cartItems } = useContext(ShopContext);
-  const itemsCount = cartItems.reduce((prve, current) => {
+  const itemsCount = cartItems?.reduce((prve, current) => {
     return prve + current.count;
   }, 0);
   return (
@@ -23,14 +23,16 @@ export default function Nav() {
               Shop
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to="/cart" className="nav-link">
-              <FontAwesomeIcon icon={faShoppingCart} />
-              {itemsCount > 0 && (
-                <span className="cart-items-count">{itemsCount}</span>
-              )}
-            </Link>
-          </li>
+          {cartItems && (
+            <li className="nav-item">
+              <Link to="/cart" className="nav-link">
+                <FontAwesomeIcon icon={faShoppingCart} />
+                {itemsCount > 0 && (
+                  <span className="cart-items-count">{itemsCount}</span>
+                )}
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

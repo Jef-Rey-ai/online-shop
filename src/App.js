@@ -5,6 +5,7 @@ import Shop from "./pages/shop/Shop";
 import Cart from "./pages/cart/Cart";
 import Nav from "./components/Nav";
 import { ShopContextProvider } from "./context/ShopContext";
+import Welcome from "./components/welcome";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <ShopContextProvider>
         <Router>
           <Nav />
+          <Welcome />
           <Routes>
             <Route path="/" element={<Shop />} />
             <Route path="/cart" element={<Cart />} />
